@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Sociedad de la Transparencia en WiFi Ralph • Edición Mágica</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Fredoka:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        disney: {
+                            midnight: '#0b081a',
+                            deepPurple: '#180e38',
+                            magicBlue: '#00d2ff',
+                            starlight: '#ffd700',
+                            fairyPink: '#ff3b94',
+                            sparkleGold: '#ffbe3b',
+                            enchantedViolet: '#9d4edd'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        magic: ['Fredoka', 'cursive'],
+                        serif: ['Cinzel', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: radial-gradient(circle at 50% 20%, #20124d 0%, #0b081a 70%);
+            color: #f8fafc;
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Sparkle & Starlight Animation */
+        @keyframes floatingStars {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-15px) rotate(180deg); opacity: 0.9; }
+            100% { transform: translateY(0px) rotate(360deg); opacity: 0.3; }
+        }
+        .star-particle {
+            position: absolute;
+            pointer-events: none;
+            animation: floatingStars 4s ease-in-out infinite;
+        }
+
+        /* Disney Glow Effects */
+        .glow-gold {
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+        }
+        .glow-magic-blue {
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.4);
+        }
+        .glow-fairy-pink {
+            box-shadow: 0 0 25px rgba(255, 59, 148, 0.4);
+        }
+        
+        .text-glow-gold {
+            text-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
+        }
+        .text-glow-magic {
+            text-shadow: 0 0 15px rgba(0, 210, 255, 0.8), 0 0 30px rgba(157, 78, 221, 0.5);
+        }
+
+        /* Magical Glassmorphism Panel */
+        .disney-panel {
+            background: rgba(24, 14, 56, 0.65);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+        }
+
+        .disney-panel-active {
+            background: rgba(36, 20, 84, 0.85);
+            border: 2px solid #ffd700;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Golden Sparkle Button */
+        .btn-disney-magic {
+            background: linear-gradient(135deg, #ffd700 0%, #ff3b94 50%, #9d4edd 100%);
+            color: #0b081a;
+            font-weight: 700;
+            box-shadow: 0 0 20px rgba(255, 59, 148, 0.5);
+            transition: all 0.3s ease;
+        }
+        .btn-disney-magic:hover {
+            transform: scale(1.04);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b081a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #ffd700, #ff3b94);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen">
+
+    <!-- Background Sparkle Dust Elements -->
+    <div class="star-particle top-10 left-10 text-disney-starlight text-xl"><i class="fa-solid fa-sparkles"></i></div>
+    <div class="star-particle top-1/4 right-12 text-disney-magicBlue text-lg" style="animation-delay: 1s;"><i class="fa-solid fa-star"></i></div>
+    <div class="star-particle top-2/3 left-1/6 text-disney-fairyPink text-2xl" style="animation-delay: 2s;"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+    <div class="star-particle bottom-20 right-1/4 text-disney-sparkleGold text-xl" style="animation-delay: 1.5s;"><i class="fa-solid fa-sparkles"></i></div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 disney-panel border-b border-disney-starlight/20 px-4 lg:px-8 py-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-disney-starlight via-disney-fairyPink to-disney-enchantedViolet flex items-center justify-center font-bold text-slate-950 text-2xl font-magic glow-gold">
+                    ✨
+                </div>
+                <div>
+                    <h1 class="font-magic font-bold text-xl md:text-2xl text-white tracking-wide">
+                        BYUNG-CHUL HAN <span class="text-disney-starlight">✕</span> Disney WiFi RALPH
+                    </h1>
+                    <p class="text-xs text-disney-magicBlue font-sans">Un Análisis Filosófico Mágico sobre la Transparencia</p>
+                </div>
+            </div>
+
+            <!-- Navigation Controls -->
+            <nav class="flex items-center space-x-2 md:space-x-4 text-xs md:text-sm font-medium font-magic">
+                <button onclick="scrollToSection('hero')" class="px-3 py-1.5 rounded-full hover:bg-white/10 transition text-slate-200 hover:text-disney-starlight">Inicio</button>
+                <button onclick="scrollToSection('analysis')" class="px-3 py-1.5 rounded-full hover:bg-white/10 transition text-slate-200 hover:text-disney-starlight">Capítulos</button>
+                <button onclick="scrollToSection('quotes')" class="px-3 py-1.5 rounded-full hover:bg-white/10 transition text-slate-200 hover:text-disney-starlight">Libro de Citas</button>
+                <button onclick="scrollToSection('matrix')" class="px-3 py-1.5 rounded-full hover:bg-white/10 transition text-slate-200 hover:text-disney-starlight">Matriz Mágica</button>
+                <button onclick="openReflectionModal()" class="btn-disney-magic px-4 py-2 rounded-full font-bold text-xs uppercase tracking-wider flex items-center gap-1.5">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Diagnóstico Mágico
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Hero Section -->
+    <section id="hero" class="relative py-16 md:py-24 px-4 overflow-hidden">
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <span class="inline-flex items-center gap-2 px-5 py-2 mb-6 text-xs font-magic font-bold tracking-widest text-disney-starlight uppercase bg-disney-starlight/10 border border-disney-starlight/40 rounded-full glow-gold">
+                <i class="fa-solid fa-crown text-disney-starlight"></i> Crítica Filosófica de Cuento Digital
+            </span>
+            <h2 class="text-4xl md:text-6xl font-magic font-extrabold tracking-tight mb-6 leading-tight text-glow-magic">
+                El Reino Digital & El Hechizo de la <br class="hidden sm:inline">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-disney-starlight via-disney-fairyPink to-disney-magicBlue">
+                    Hipervisibilidad
+                </span>
+            </h2>
+            <p class="text-base md:text-xl text-slate-200 max-w-3xl mx-auto font-light leading-relaxed mb-10">
+                Acompaña a Ralph y Vanellope en su viaje a la red de Internet y descubre cómo el deslumbrante castillo de datos esconde el <strong class="text-disney-starlight font-semibold">Panóptico Digital</strong> théorizado por el filósofo <strong class="text-disney-magicBlue font-semibold">Byung-Chul Han</strong>.
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
+                <div class="disney-panel p-4 rounded-2xl border border-disney-magicBlue/30 hover:border-disney-magicBlue transition">
+                    <i class="fa-solid fa-bolt-lightning text-disney-magicBlue text-2xl mb-2"></i>
+                    <h3 class="font-magic font-bold text-base text-white">Aceleración</h3>
+                    <p class="text-xs text-slate-300 mt-1">Viaje sin tiempo ni historias solemnes.</p>
+                </div>
+                <div class="disney-panel p-4 rounded-2xl border border-disney-enchantedViolet/30 hover:border-disney-enchantedViolet transition">
+                    <i class="fa-solid fa-brain-circuit text-disney-enchantedViolet text-2xl mb-2"></i>
+                    <h3 class="font-magic font-bold text-base text-white">Cálculo Puro</h3>
+                    <p class="text-xs text-slate-300 mt-1">El sabio de la red que todo lo calcula.</p>
+                </div>
+                <div class="disney-panel p-4 rounded-2xl border border-disney-starlight/30 hover:border-disney-starlight transition">
+                    <i class="fa-solid fa-castle text-disney-starlight text-2xl mb-2"></i>
+                    <h3 class="font-magic font-bold text-base text-white">Exposición</h3>
+                    <p class="text-xs text-slate-300 mt-1">El valor del reino medido por las miradas.</p>
+                </div>
+                <div class="disney-panel p-4 rounded-2xl border border-disney-fairyPink/30 hover:border-disney-fairyPink transition">
+                    <i class="fa-solid fa-heart-circle-bolt text-disney-fairyPink text-2xl mb-2"></i>
+                    <h3 class="font-magic font-bold text-base text-white">Reino del "Like"</h3>
+                    <p class="text-xs text-slate-300 mt-1">El cansancio de la sonrisa obligatoria.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Analysis Nodes Section -->
+    <section id="analysis" class="py-12 max-w-7xl mx-auto px-4 md:px-8">
+        <div class="mb-10 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between">
+            <div>
+                <span class="text-xs font-magic font-bold uppercase text-disney-starlight tracking-widest">Capítulos de la Crítica</span>
+                <h2 class="text-3xl md:text-4xl font-magic font-bold text-white text-glow-gold">Ejes Teóricos del Viaje Digital</h2>
+            </div>
+            <!-- Filter buttons -->
+            <div class="flex flex-wrap gap-2 mt-4 md:mt-0 justify-center font-magic text-xs">
+                <button onclick="filterNodes('all')" class="node-filter-btn active-filter px-4 py-2 rounded-full font-bold bg-disney-starlight text-slate-950 shadow-lg transition">Todos</button>
+                <button onclick="filterNodes('aceleracion')" class="node-filter-btn px-4 py-2 rounded-full font-bold bg-disney-deepPurple border border-disney-magicBlue/40 text-slate-200 hover:border-disney-magicBlue transition">Aceleración</button>
+                <button onclick="filterNodes('calculo')" class="node-filter-btn px-4 py-2 rounded-full font-bold bg-disney-deepPurple border border-disney-enchantedViolet/40 text-slate-200 hover:border-disney-enchantedViolet transition">Cálculo</button>
+                <button onclick="filterNodes('exposicion')" class="node-filter-btn px-4 py-2 rounded-full font-bold bg-disney-deepPurple border border-disney-starlight/40 text-slate-200 hover:border-disney-starlight transition">Exposición</button>
+                <button onclick="filterNodes('burnout')" class="node-filter-btn px-4 py-2 rounded-full font-bold bg-disney-deepPurple border border-disney-fairyPink/40 text-slate-200 hover:border-disney-fairyPink transition">Burnout</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Left Node Selector Cards -->
+            <div class="lg:col-span-5 space-y-4" id="nodesContainer">
+                
+                <!-- Node 1 -->
+                <div onclick="selectNode(1)" id="nodeCard-1" class="node-card disney-panel disney-panel-active p-5 rounded-2xl cursor-pointer transition-all duration-300 relative group overflow-hidden" data-category="aceleracion">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-xs font-magic text-disney-magicBlue uppercase tracking-wider font-bold">Capítulo I • El Viaje Mágico</span>
+                        <i class="fa-solid fa-wifi text-disney-magicBlue text-xl"></i>
+                    </div>
+                    <h3 class="font-magic font-bold text-lg text-white group-hover:text-disney-starlight transition">El Router y las Autopistas de Datos</h3>
+                    <p class="text-xs text-slate-300 mt-2 line-clamp-2">Paso del espacio ritualizado de los arcades a la superautopista de datos sin fricción ni narratividad.</p>
+                </div>
+
+                <!-- Node 2 -->
+                <div onclick="selectNode(2)" id="nodeCard-2" class="node-card disney-panel p-5 rounded-2xl cursor-pointer transition-all duration-300 relative group overflow-hidden" data-category="calculo">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-xs font-magic text-disney-enchantedViolet uppercase tracking-wider font-bold">Capítulo II • El Oráculo Algorítmico</span>
+                        <i class="fa-solid fa-wand-magic text-disney-enchantedViolet text-xl"></i>
+                    </div>
+                    <h3 class="font-magic font-bold text-lg text-white group-hover:text-disney-starlight transition">Saber (KnowsMore) y los Habitantes</h3>
+                    <p class="text-xs text-slate-300 mt-2 line-clamp-2">Saber e autocompletado: sustitución de la intuición por el cálculo operacional continuo.</p>
+                </div>
+
+                <!-- Node 3 -->
+                <div onclick="selectNode(3)" id="nodeCard-3" class="node-card disney-panel p-5 rounded-2xl cursor-pointer transition-all duration-300 relative group overflow-hidden" data-category="exposicion">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-xs font-magic text-disney-starlight uppercase tracking-wider font-bold">Capítulo III • Torres Encantadas</span>
+                        <i class="fa-solid fa-castle text-disney-starlight text-xl"></i>
+                    </div>
+                    <h3 class="font-magic font-bold text-lg text-white group-hover:text-disney-starlight transition">Corporaciones y Panóptico Digital</h3>
+                    <p class="text-xs text-slate-300 mt-2 line-clamp-2">Los rascacielos digitales transforman el reino en un mercado donde exponerse es obligatorio para existir.</p>
+                </div>
+
+                <!-- Node 4 -->
+                <div onclick="selectNode(4)" id="nodeCard-4" class="node-card disney-panel p-5 rounded-2xl cursor-pointer transition-all duration-300 relative group overflow-hidden" data-category="burnout">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-xs font-magic text-disney-fairyPink uppercase tracking-wider font-bold">Capítulo IV • El Hechizo del Corazón</span>
+                        <i class="fa-solid fa-heart text-disney-fairyPink text-xl"></i>
+                    </div>
+                    <h3 class="font-magic font-bold text-lg text-white group-hover:text-disney-starlight transition">Dictadura del "Me Gusta" y Burnout</h3>
+                    <p class="text-xs text-slate-300 mt-2 line-clamp-2">La cosecha encarnizada de likes, el dolor de la zona de comentarios y el colapso emocional de Ralph.</p>
+                </div>
+
+            </div>
+
+            <!-- Right Active Node Detailed View -->
+            <div class="lg:col-span-7">
+                <div id="nodeDetailView" class="disney-panel p-6 md:p-8 rounded-3xl border border-disney-starlight/40 min-h-[480px] flex flex-col justify-between relative overflow-hidden shadow-2xl">
+                    <!-- Dynamic Content Populated via JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophical Quotes Showcase Section -->
+    <section id="quotes" class="py-16 bg-disney-deepPurple/70 border-y border-disney-starlight/20 px-4 md:px-8 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-xs font-magic font-bold uppercase text-disney-magicBlue tracking-widest">Sabiduría Filosófica</span>
+                <h2 class="text-3xl md:text-4xl font-magic font-bold text-white text-glow-gold">El Libro de los Encantamientos de Han</h2>
+                <p class="text-slate-300 text-sm mt-2">Citas Textuales Extraídas de <em>La Sociedad de la Transparencia</em></p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="quotesGrid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparative Matrix Section -->
+    <section id="matrix" class="py-16 max-w-7xl mx-auto px-4 md:px-8">
+        <div class="text-center mb-12">
+            <span class="text-xs font-magic font-bold uppercase text-disney-fairyPink tracking-widest">Conexión de Mundos</span>
+            <h2 class="text-3xl md:text-4xl font-magic font-bold text-white text-glow-gold">Matriz de Contrastes Mágicos</h2>
+            <p class="text-slate-300 text-sm mt-2">Paralelismos entre la Narrativa Animada de Disney y la Filosofía Crítica</p>
+        </div>
+
+        <div class="disney-panel rounded-3xl overflow-hidden border border-disney-starlight/30 shadow-2xl">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm text-slate-200">
+                    <thead class="bg-disney-deepPurple/90 text-xs font-magic uppercase text-disney-starlight border-b border-disney-starlight/20">
+                        <tr>
+                            <th class="p-4 md:p-5">Cuento Disney (WiFi Ralph)</th>
+                            <th class="p-4 md:p-5">Postulado de Byung-Chul Han</th>
+                            <th class="p-4 md:p-5">Transformación en el Reino Humano</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-disney-starlight/10 font-light">
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-4 md:p-5 font-medium text-white flex items-center space-x-3 font-magic">
+                                <span class="w-2.5 h-2.5 rounded-full bg-disney-magicBlue glow-magic-blue"></span>
+                                <span>El Router Wi-Fi & Autopistas</span>
+                            </td>
+                            <td class="p-4 md:p-5 font-mono text-disney-magicBlue text-xs">Aceleración / Espacio Liso Sin Umbrales</td>
+                            <td class="p-4 md:p-5 text-slate-300">Pérdida del ritual, las pausas y el sentido narrativo del tiempo.</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-4 md:p-5 font-medium text-white flex items-center space-x-3 font-magic">
+                                <span class="w-2.5 h-2.5 rounded-full bg-disney-enchantedViolet"></span>
+                                <span>Saber (KnowsMore) & Netizens</span>
+                            </td>
+                            <td class="p-4 md:p-5 font-mono text-disney-enchantedViolet text-xs">Degradación del Pensamiento en Cálculo</td>
+                            <td class="p-4 md:p-5 text-slate-300">Sustitución de la sorpresa o intuición por autocompletados instantáneos.</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-4 md:p-5 font-medium text-white flex items-center space-x-3 font-magic">
+                                <span class="w-2.5 h-2.5 rounded-full bg-disney-starlight glow-gold"></span>
+                                <span>Torres de BuzzzTube & Redes</span>
+                            </td>
+                            <td class="p-4 md:p-5 font-mono text-disney-starlight text-xs">Panóptico Digital & Valor de Exposición</td>
+                            <td class="p-4 md:p-5 text-slate-300">Desnudamiento voluntario del individuo para obtener atención comercial.</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-4 md:p-5 font-medium text-white flex items-center space-x-3 font-magic">
+                                <span class="w-2.5 h-2.5 rounded-full bg-disney-fairyPink glow-fairy-pink"></span>
+                                <span>Cosecha de Likes y Zona de Odio</span>
+                            </td>
+                            <td class="p-4 md:p-5 font-mono text-disney-fairyPink text-xs">Dictadura del "Me Gusta" & Síndrome Burnout</td>
+                            <td class="p-4 md:p-5 text-slate-300">Agotamiento psíquico producido por exponer la intimidad a la masa.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Synthesis Summary Card -->
+    <section class="py-12 max-w-5xl mx-auto px-4">
+        <div class="disney-panel p-8 md:p-10 rounded-3xl border-2 border-disney-starlight/40 relative overflow-hidden text-center glow-gold">
+            <div class="absolute -right-20 -top-20 w-56 h-56 bg-disney-starlight/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-20 -bottom-20 w-56 h-56 bg-disney-fairyPink/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="text-4xl text-disney-starlight mb-3"><i class="fa-solid fa-sparkles"></i></div>
+            <h3 class="font-magic font-bold text-2xl md:text-3xl text-white mb-4 text-glow-gold">Síntesis Filosófica de la Fantasía Digital</h3>
+            <p class="text-slate-200 text-sm md:text-base leading-relaxed max-w-3xl mx-auto font-light">
+                En <strong>WiFi Ralph</strong>, el deslumbrante reino de Internet retratado por Disney funciona como la alegoría gráfica del <strong>panóptico digital</strong> descrito por Byung-Chul Han. La red no opera simplemente como una fiesta de luces y conexiones mágicas, sino como un entramado de vigilancia, autoexplotación y comunicación hiperacelerada. La historia nos demuestra cómo la búsqueda imperiosa de visibilidad reduce la experiencia humana y la intimidad a una superficie lisa, expuesta y comercializable.
+            </p>
+        </div>
+    </section>
+
+    <!-- Interactive Reflection Modal -->
+    <div id="reflectionModal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="disney-panel max-w-lg w-full p-6 md:p-8 rounded-3xl border-2 border-disney-starlight/50 relative shadow-2xl">
+            <button onclick="closeReflectionModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white transition text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="flex items-center space-x-3 mb-4">
+                <div class="w-12 h-12 rounded-2xl bg-disney-fairyPink/20 border border-disney-fairyPink/50 flex items-center justify-center text-disney-fairyPink text-xl glow-fairy-pink">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+                <div>
+                    <h3 class="font-magic font-bold text-xl text-white">Espejo Mágico de Diagnóstico</h3>
+                    <p class="text-xs text-disney-magicBlue">Descubre tu reflejo en la Filosofía de Han</p>
+                </div>
+            </div>
+
+            <form id="reflectionForm" onsubmit="handleReflectionSubmit(event)" class="space-y-4 font-sans">
+                <div>
+                    <label class="block text-xs font-magic font-bold text-slate-200 mb-2">¿Sientes la coacción de exponer tu vida en redes?</label>
+                    <select id="q1" class="w-full bg-disney-deepPurple border border-disney-starlight/30 rounded-xl p-3 text-xs text-slate-200 focus:outline-none focus:border-disney-starlight font-magic">
+                        <option value="si">Sí, siento que debo mostrar constantemente lo que hago.</option>
+                        <option value="a_veces">A veces, en momentos o eventos especiales.</option>
+                        <option value="no">No, resguardo celosamente mi esfera privada.</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-magic font-bold text-slate-200 mb-2">¿Cómo afecta la búsqueda de likes tu paz emocional?</label>
+                    <textarea id="q2" rows="3" placeholder="Escribe tu reflexión breve aquí..." class="w-full bg-disney-deepPurple border border-disney-starlight/30 rounded-xl p-3 text-xs text-slate-200 focus:outline-none focus:border-disney-fairyPink resize-none font-sans"></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 rounded-full btn-disney-magic font-magic uppercase tracking-wider text-xs">
+                    <i class="fa-solid fa-sparkles mr-1"></i> Revelar Diagnóstico Filosófico
+                </button>
+            </form>
+
+            <div id="reflectionResult" class="hidden mt-6 p-4 rounded-2xl bg-disney-deepPurple/90 border border-disney-starlight/40 text-xs leading-relaxed text-slate-200 font-sans">
+                <!-- Diagnostic result dynamic output -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-disney-starlight/10 py-8 text-center text-xs text-slate-400 font-magic">
+        <p>✨ Análisis Filosófico Mágico basado en <em>La Sociedad de la Transparencia</em> (Byung-Chul Han) y <em>WiFi Ralph</em> (Disney).</p>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Data Store for Analysis Nodes
+        const nodesData = {
+            1: {
+                title: "1. El Router y las Autopistas de Datos",
+                subtitle: "El imperativo de la aceleración y la pérdida de la narratividad",
+                category: "Aceleración Mágica",
+                color: "disney-magicBlue",
+                narrative: "La llegada del Wi-Fi al salón de arcade representa el paso de un espacio ritualizado (las máquinas de arcade tradicionales, donde el juego tenía reglas fijas y pausas) hacia una superautopista donde la información circula sin fricciones.",
+                hanConcept: "Han sostiene que la sociedad positiva exige la eliminación de todo obstáculo para garantizar el flujo y la aceleración. En este entorno, los trayectos pierden su profundidad narrativa y se convierten en meras operaciones aditivas de transferencia de datos.",
+                quotes: [
+                    {
+                        title: "La aceleración frente al sentido",
+                        text: "«El sistema social somete hoy todos sus procesos a una coacción de transparencia para hacerlos operacionales y acelerarlos. La presión de la aceleración va de la mano del desmontaje de la negatividad. La comunicación alcanza su máxima velocidad allí donde lo igual responde a lo igual...»"
+                    },
+                    {
+                        title: "El espacio liso sin umbrales",
+                        text: "«La coacción de la transparencia deshace todos los límites y umbrales. El espacio se hace transparente cuando es nivelado, alisado y desinteriorizado. El espacio transparente es pobre en semántica.»"
+                    }
+                ],
+                conclusion: "Al adentrarse en la red, Ralph y Vanellope abandonan los contornos y límites de sus juegos originales para quedar expuestos a un flujo liso e infinito donde todo está disponible de inmediato."
+            },
+            2: {
+                title: "2. Saber (KnowsMore) y los Habitantes de la Red",
+                subtitle: "El panóptico algorítmico y la atrofia del pensamiento",
+                category: "Oráculo Algorítmico",
+                color: "disney-enchantedViolet",
+                narrative: "La figura de Saber (KnowsMore), el buscador que predice las oraciones de los usuarios mediante el autocompletado y anticipa sus consultas, personifica cómo la sociedad de la información sustituye la intuición y la reflexión profunda por el cálculo operacional.",
+                hanConcept: "Asimismo, la masa de Netizens persiguiendo la atención de las personas refleja un entorno donde el sujeto no solo es usuario, sino también la mercancía observada.",
+                quotes: [
+                    {
+                        title: "La degradación del pensamiento en cálculo",
+                        text: "«La información es desnuda... Y sin laguna de saber el pensamiento degenera para convertirse en cálculo.»"
+                    },
+                    {
+                        title: "La obscenidad de la información",
+                        text: "«Aquel mundo que tan solo constara de informaciones, y cuya circulación no perturbada se llamara comunicación, sería igual que una máquina. La sociedad positiva está dominada por la transparencia y la obscenidad de la información...»"
+                    },
+                    {
+                        title: "Atención frente a poder",
+                        text: "«Exponer o exhibir no sirven de modo primario al logro de poder. Allí no se aspira al poder, sino a la atención. Lo que está en su fondo como impulsado no es polemos, sino porno.»"
+                    }
+                ],
+                conclusion: "La mente humana pierde su capacidad de pausa reflexiva cuando los algoritmos reducen el saber a cálculo predictivo instantáneo."
+            },
+            3: {
+                title: "3. Corporaciones Digitales y Torres de Redes",
+                subtitle: "El panóptico digital y la exposición comercial",
+                category: "Torres de Exposición",
+                color: "disney-starlight",
+                narrative: "Las redes sociales y las plataformas de comercio electrónico (representadas como rascacielos gigantescos que dominan el horizonte) transforman el espacio público en un mercado donde la visibilidad dicta la existencia de las cosas.",
+                hanConcept: "Han subraya que las plataformas digitales actúan como un panóptico digital sin centro despótico, en el cual los propios habitantes colaboran voluntariamente desnudándose y buscando ser vistos.",
+                quotes: [
+                    {
+                        title: "La tiranía del Valor de Exposición",
+                        text: "«En la sociedad positiva, en la que las cosas, convertidas ahora en mercancía, han de exponerse para ser, desaparece su valor cultual a favor del valor de exposición... Las cosas se revisten de un valor solamente cuando son vistas. La coacción de la exposición, que lo entrega todo a la visibilidad, hace desaparecer por completo el aura...»"
+                    },
+                    {
+                        title: "El panóptico voluntario",
+                        text: "«Google y las redes sociales, que se presentan como espacios de libertad, se han convertido en un gran panóptico... La vigilancia no se realiza como ataque a la libertad. Más bien, cada uno se entrega voluntariamente, desnudándose y exponiéndose, a la mirada panóptica. El morador del panóptico digital es víctima y actor a la vez.»"
+                    }
+                ],
+                conclusion: "Las notificaciones instantáneas y la búsqueda constante de interacciones en estas plataformas eliminan toda opacidad o intimidad, subordinando la experiencia al imperativo económico."
+            },
+            4: {
+                title: "4. El Hechizo del Corazón & La Zona de Odio",
+                subtitle: "La dictadura del 'Me Gusta', el Burnout y la toxicidad",
+                category: "Corazón & Burnout",
+                color: "disney-fairyPink",
+                narrative: "La escena paradigmática en la que Ralph intenta desesperadamente obtener 'corazones' (vistas y likes) realizando videos virales para pagar su deuda en eBay, culminando en la dolorosa lectura de la sección de comentarios tóxicos, condensa la tesis central de Han sobre la Sociedad Positiva y la Sociedad de la Exposición.",
+                hanConcept: "Ralph sufre el choque de la negatividad en un entorno que exige positividad constante y exposición perpetua, revelando la vulnerabilidad del sujeto cuando transforma su intimidad en mercancía.",
+                quotes: [
+                    {
+                        title: "La dictadura del 'Me gusta'",
+                        text: "«El veredicto general de la sociedad positiva se llama 'me gusta'. Es significativo que Facebook se negara consecuentemente a introducir un botón de 'no me gusta'. La sociedad positiva evita toda modalidad de juego de la negatividad, pues esta detiene la comunicación.»"
+                    },
+                    {
+                        title: "La autoexplotación y el desnudamiento",
+                        text: "«En la sociedad expuesta, cada sujeto es su propio objeto de publicidad. Todo se mide en su valor de exposición... La coacción de la exposición conduce a la alienación del cuerpo mismo. Este se cosifica como un objeto de exposición al que hay que optimizar.»"
+                    },
+                    {
+                        title: "El colapso psíquico por sobreexposición (Burnout)",
+                        text: "«Sin duda, el alma humana necesita esferas en las que pueda estar en sí misma sin la mirada del otro. Lleva inherente una impermeabilidad. Una iluminación total la quemaría y provocaría una forma especial de síndrome psíquico de Burnout.»"
+                    }
+                ],
+                conclusion: "Al enfrentarse a la agresividad de los comentarios, Ralph evidencia el colapso emocional del sujeto expuesto sin protección en la dictadura de la positividad."
+            }
+        };
+
+        // All Quotes for Quotes Showcase Section
+        const allQuotes = [
+            {
+                tag: "Aceleración",
+                quote: "«El sistema social somete hoy todos sus procesos a una coacción de transparencia para hacerlos operacionales y acelerarlos. La presión de la aceleración va de la mano del desmontaje de la negatividad.»"
+            },
+            {
+                tag: "Espacio Liso",
+                quote: "«La coacción de la transparencia deshace todos los límites y umbrales. El espacio se hace transparente cuando es nivelado, alisado y desinteriorizado.»"
+            },
+            {
+                tag: "Algoritmos",
+                quote: "«La información es desnuda... Y sin laguna de saber el pensamiento degenera para convertirse en cálculo.»"
+            },
+            {
+                tag: "Panóptico Digital",
+                quote: "«Google y las redes sociales, que se presentan como espacios de libertad, se han convertido en un gran panóptico... El morador del panóptico digital es víctima y actor a la vez.»"
+            },
+            {
+                tag: "Valor de Exposición",
+                quote: "«En la sociedad positiva, en la que las cosas, convertidas ahora en mercancía, han de exponerse para ser, desaparece su valor cultual a favor del valor de exposición.»"
+            },
+            {
+                tag: "Síndrome Burnout",
+                quote: "«Sin duda, el alma humana necesita esferas en las que pueda estar en sí misma sin la mirada del otro... Una iluminación total la quemaría y provocaría una forma especial de síndrome psíquico de Burnout.»"
+            }
+        ];
+
+        // State Management
+        let currentActiveNode = 1;
+
+        // Render Active Node Details
+        function selectNode(id) {
+            currentActiveNode = id;
+            const data = nodesData[id];
+            
+            // Highlight selector card
+            document.querySelectorAll('.node-card').forEach(card => {
+                card.classList.remove('disney-panel-active');
+            });
+            const activeCard = document.getElementById(`nodeCard-${id}`);
+            if (activeCard) activeCard.classList.add('disney-panel-active');
+
+            // Render detail view HTML
+            const detailContainer = document.getElementById('nodeDetailView');
+            detailContainer.innerHTML = `
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3.5 py-1 rounded-full text-xs font-magic font-bold bg-disney-starlight/10 text-disney-starlight border border-disney-starlight/40">
+                            ✨ ${data.category}
+                        </span>
+                        <span class="text-xs font-magic text-slate-400">Capítulo 0${id} / 04</span>
+                    </div>
+
+                    <h3 class="text-2xl font-magic font-bold text-white mb-1 text-glow-gold">${data.title}</h3>
+                    <p class="text-xs font-bold text-disney-magicBlue mb-6 font-sans">${data.subtitle}</p>
+
+                    <!-- Narrative & Philosophical Synthesis -->
+                    <div class="space-y-4 mb-6">
+                        <div class="p-4 rounded-2xl bg-disney-deepPurple/80 border border-disney-starlight/20 text-xs md:text-sm leading-relaxed text-slate-200">
+                            <strong class="text-disney-starlight block mb-1 font-magic text-sm"><i class="fa-solid fa-film mr-2 text-disney-fairyPink"></i>Narrativa Animada Disney:</strong>
+                            ${data.narrative}
+                        </div>
+                        <div class="p-4 rounded-2xl bg-disney-deepPurple/80 border border-disney-starlight/20 text-xs md:text-sm leading-relaxed text-slate-200">
+                            <strong class="text-disney-magicBlue block mb-1 font-magic text-sm"><i class="fa-solid fa-book-sparkles mr-2 text-disney-starlight"></i>Tesis de Byung-Chul Han:</strong>
+                            ${data.hanConcept}
+                        </div>
+                    </div>
+
+                    <!-- Quotes Carousel/List -->
+                    <div class="space-y-3 mb-6">
+                        <h4 class="text-xs font-magic uppercase text-disney-starlight font-bold tracking-wider">Encantamientos Textuales (Citas Directas):</h4>
+                        ${data.quotes.map(q => `
+                            <blockquote class="p-4 rounded-2xl bg-disney-midnight/90 border-l-4 border-disney-starlight text-xs text-slate-200 italic leading-relaxed shadow-lg">
+                                <span class="font-bold text-disney-starlight not-italic font-magic block mb-1 text-xs">✨ ${q.title}</span>
+                                ${q.text}
+                            </blockquote>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <!-- Footer Synthesis Note -->
+                <div class="pt-4 border-t border-disney-starlight/20 text-xs text-slate-300 italic font-sans flex items-center gap-2">
+                    <i class="fa-solid fa-sparkles text-disney-starlight"></i> ${data.conclusion}
+                </div>
+            `;
+        }
+
+        // Render Quotes Showcase
+        function renderQuotes() {
+            const container = document.getElementById('quotesGrid');
+            container.innerHTML = allQuotes.map(q => `
+                <div class="disney-panel p-6 rounded-3xl border border-disney-starlight/30 hover:border-disney-starlight transition relative group shadow-xl">
+                    <span class="inline-block px-3 py-1 mb-3 text-[11px] font-magic font-bold uppercase rounded-full bg-disney-starlight/10 text-disney-starlight border border-disney-starlight/30">
+                        ✨ ${q.tag}
+                    </span>
+                    <p class="text-xs md:text-sm text-slate-200 italic leading-relaxed font-serif">
+                        ${q.quote}
+                    </p>
+                    <div class="mt-4 text-right text-[11px] font-magic font-semibold text-disney-magicBlue">
+                        — Byung-Chul Han, <span class="italic text-slate-300">La Sociedad de la Transparencia</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Node Filter Logic
+        function filterNodes(category) {
+            const buttons = document.querySelectorAll('.node-filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-disney-starlight', 'text-slate-950', 'shadow-lg');
+                btn.classList.add('bg-disney-deepPurple', 'text-slate-200');
+            });
+            event.target.classList.remove('bg-disney-deepPurple', 'text-slate-200');
+            event.target.classList.add('bg-disney-starlight', 'text-slate-950', 'shadow-lg');
+
+            const cards = document.querySelectorAll('.node-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Scroll Helper
+        function scrollToSection(id) {
+            const section = document.getElementById(id);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Reflection Modal Logic
+        function openReflectionModal() {
+            document.getElementById('reflectionModal').classList.remove('hidden');
+        }
+        function closeReflectionModal() {
+            document.getElementById('reflectionModal').classList.add('hidden');
+        }
+
+        function handleReflectionSubmit(e) {
+            e.preventDefault();
+            const q1 = document.getElementById('q1').value;
+            const q2 = document.getElementById('q2').value;
+            const resultBox = document.getElementById('reflectionResult');
+
+            let diagnosis = "";
+            if (q1 === 'si') {
+                diagnosis = "<strong>🔮 Reflejo del Espejo: Morador del Panóptico Digital.</strong> Vives dentro de la coacción de la exposición descrita por Han. Al entregar tu día a día a la mirada pública, transformas tu intimidad en mercancía para el reino digital.";
+            } else if (q1 === 'a_veces') {
+                diagnosis = "<strong>🔮 Reflejo del Espejo: En busca del equilibrio.</strong> Negocias entre la magia de conectarte con el mundo y el resguardo de tu castillo interior de intimidad.";
+            } else {
+                diagnosis = "<strong>🔮 Reflejo del Espejo: Guardián de la Opacidad.</strong> Proteges la 'laguna de saber' e intimidad que Han considera indispensable para no caer quemado por el síndrome de Burnout digital.";
+            }
+
+            resultBox.innerHTML = `
+                <div class="space-y-2">
+                    <p class="text-disney-starlight font-magic font-bold text-xs uppercase tracking-wider">Diagnóstico Filosófico Revelado:</p>
+                    <p class="font-sans">${diagnosis}</p>
+                    ${q2 ? `<p class="mt-2 text-slate-300 italic text-[11px] font-sans">Tu testimonio: "${q2}" concuerda con la pérdida de la negatividad reflexiva en los entornos de validación instantánea.</p>` : ''}
+                </div>
+            `;
+            resultBox.classList.remove('hidden');
+        }
+
+        // Initial Load Configuration
+        window.onload = function() {
+            selectNode(1);
+            renderQuotes();
+        };
+    </script>
+</body>
+</html>
